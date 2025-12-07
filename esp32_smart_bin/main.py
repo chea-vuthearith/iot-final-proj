@@ -29,8 +29,8 @@ lcd = None
 # Ultrasonic sensor pins
 entrance_trig = None
 entrance_echo = None
-proximity_trig = None
-proximity_echo = None
+# proximity_trig = None
+#proximity_echo = None
 capacity_trig = None
 capacity_echo = None
 

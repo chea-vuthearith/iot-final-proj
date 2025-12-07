@@ -21,8 +21,8 @@ ENTRANCE_TRIG_PIN = 5
 ENTRANCE_ECHO_PIN = 18
 
 # Ultrasonic Sensor 2: User Proximity (detects people approaching)
-PROXIMITY_TRIG_PIN = 19
-PROXIMITY_ECHO_PIN = 21
+# PROXIMITY_TRIG_PIN = 19
+# PROXIMITY_ECHO_PIN = 21
 
 # Ultrasonic Sensor 3: Capacity (measures fill level)
 CAPACITY_TRIG_PIN = 22
