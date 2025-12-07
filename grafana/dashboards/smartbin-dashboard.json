@@ -25,7 +25,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "influxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -70,9 +70,7 @@
       "options": {
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -84,7 +82,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "influxdbdatasource"
           },
           "query": "from(bucket: \"smartbin_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"smartbin_telemetry\")\n  |> filter(fn: (r) => r[\"_field\"] == \"capacity\")\n  |> last()",
           "refId": "A"
@@ -96,7 +94,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "influxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -130,9 +128,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -143,7 +139,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "influxdbdatasource"
           },
           "query": "from(bucket: \"smartbin_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"smartbin_telemetry\")\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\")\n  |> last()",
           "refId": "A"
@@ -155,7 +151,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "influxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -189,9 +185,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -202,7 +196,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "influxdbdatasource"
           },
           "query": "from(bucket: \"smartbin_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"smartbin_telemetry\")\n  |> filter(fn: (r) => r[\"_field\"] == \"humidity\")\n  |> last()",
           "refId": "A"
@@ -214,7 +208,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "influxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -248,9 +242,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -261,7 +253,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "influxdbdatasource"
           },
           "query": "from(bucket: \"smartbin_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"smartbin_telemetry\")\n  |> filter(fn: (r) => r[\"_field\"] == \"trash_count\")\n  |> last()",
           "refId": "A"
@@ -273,7 +265,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "influxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -326,9 +318,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -339,7 +329,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "influxdbdatasource"
           },
           "query": "from(bucket: \"smartbin_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"smartbin_telemetry\")\n  |> filter(fn: (r) => r[\"_field\"] == \"bin_full\")\n  |> last()\n  |> map(fn: (r) => ({ r with _value: if r._value then 1 else 0 }))",
           "refId": "A"
@@ -351,7 +341,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "influxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -418,11 +408,7 @@
       "id": 6,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max",
-            "mean"
-          ],
+          "calcs": ["lastNotNull", "max", "mean"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -437,7 +423,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "influxdbdatasource"
           },
           "query": "from(bucket: \"smartbin_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"smartbin_telemetry\")\n  |> filter(fn: (r) => r[\"_field\"] == \"capacity\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> yield(name: \"mean\")",
           "refId": "A"
@@ -449,7 +435,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "influxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -548,11 +534,7 @@
       "id": 7,
       "options": {
         "legend": {
-          "calcs": [
-            "lastNotNull",
-            "max",
-            "min"
-          ],
+          "calcs": ["lastNotNull", "max", "min"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -567,7 +549,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "influxdbdatasource"
           },
           "query": "from(bucket: \"smartbin_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"smartbin_telemetry\")\n  |> filter(fn: (r) => r[\"_field\"] == \"temperature\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> yield(name: \"temperature\")",
           "refId": "A"
@@ -575,7 +557,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "influxdbdatasource"
           },
           "query": "from(bucket: \"smartbin_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"smartbin_telemetry\")\n  |> filter(fn: (r) => r[\"_field\"] == \"humidity\")\n  |> aggregateWindow(every: v.windowPeriod, fn: mean, createEmpty: false)\n  |> yield(name: \"humidity\")",
           "refId": "B"
@@ -587,7 +569,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "influxdbdatasource"
       },
       "fieldConfig": {
         "defaults": {
@@ -648,9 +630,7 @@
       "id": 8,
       "options": {
         "legend": {
-          "calcs": [
-            "sum"
-          ],
+          "calcs": ["sum"],
           "displayMode": "list",
           "placement": "bottom",
           "showLegend": true
@@ -665,7 +645,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "influxdbdatasource"
           },
           "query": "from(bucket: \"smartbin_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"smartbin_telemetry\")\n  |> filter(fn: (r) => r[\"_field\"] == \"trash_count\")\n  |> difference(nonNegative: true)\n  |> aggregateWindow(every: 1h, fn: sum, createEmpty: false)\n  |> yield(name: \"trash_events\")",
           "refId": "A"
@@ -677,7 +657,7 @@
     {
       "datasource": {
         "type": "influxdb",
-        "uid": "${DS_INFLUXDB}"
+        "uid": "influxdbdatasource"
       },
       "gridPos": {
         "h": 6,
@@ -701,7 +681,7 @@
         {
           "datasource": {
             "type": "influxdb",
-            "uid": "${DS_INFLUXDB}"
+            "uid": "influxdbdatasource"
           },
           "query": "from(bucket: \"smartbin_data\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"smartbin_alert\")\n  |> filter(fn: (r) => r[\"_field\"] == \"alert\")\n  |> sort(columns: [\"_time\"], desc: true)",
           "refId": "A"
@@ -714,10 +694,7 @@
   "refresh": "5s",
   "schemaVersion": 38,
   "style": "dark",
-  "tags": [
-    "iot",
-    "smartbin"
-  ],
+  "tags": ["iot", "smartbin"],
   "templating": {
     "list": []
   },
